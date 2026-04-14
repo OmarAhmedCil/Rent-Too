@@ -1,0 +1,603 @@
+/* ==================================
+   GLOBAL LAYOUT & COLOR SCHEME
+================================== */
+.stApp, .main, .block-container, section[data-testid="stSidebar"],
+[data-testid="stSidebar"], [data-testid="stSidebarContent"], [data-testid="stHeader"] {
+    background-color: white !important;
+    color: black !important;
+}
+
+*, label, .stMarkdown, .stText, .stHeader, .stSubheader, .stTitle,
+.st-emotion-cache-16idsys, .st-emotion-cache-1avcmwg /* newer Streamlit labels */ {
+    color: black !important;
+}
+
+/* ==================================
+   RESPONSIVE LAYOUT TWEAKS
+================================== */
+@media (max-width: 768px) {
+    [data-testid="column"] {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+    }
+    .header-row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .logo-container {
+        margin-bottom: 10px !important;
+    }
+    .title-container {
+        text-align: center !important;
+    }
+}
+
+/* ==================================
+   LOGO + TITLE HEADER
+================================== */
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.logo-container {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+.logo-container img {
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+}
+.title-container {
+    flex: 1 1 auto;
+    text-align: center;
+}
+.title-container h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ==================================
+   INPUTS & CONTROLS — WHITE BG
+================================== */
+input, textarea, select,
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input,
+.stSelectbox div[data-baseweb="select"] > div,
+.stMultiSelect div[data-baseweb="select"] > div,
+.stTextArea textarea {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #cccccc !important;
+}
+
+/* Date picker popup */
+.stDateInput [data-baseweb="popover"],
+.stDateInput [data-baseweb="popover"] * {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* + / − step buttons in number input — grey fill + left separator so they look
+   like stepper controls, NOT flat text cells like the input field itself */
+.stNumberInput button,
+[data-testid="stNumberInputStepUp"] button,
+[data-testid="stNumberInputStepDown"] button {
+    background-color: #f0f0f0 !important;
+    color: #333333 !important;
+    border: none !important;
+    border-left: 1px solid #cccccc !important;
+    border-radius: 0 !important;
+}
+
+/* Selectbox dropdown */
+[data-baseweb="menu"],
+[data-baseweb="menu"] * {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #cccccc !important;
+}
+
+/* ==================================
+   FORMS — WHITE BACKGROUND
+================================== */
+.stForm,
+.stForm > div {
+    background-color: white !important;
+    padding: 1rem !important;
+    border-radius: 6px !important;
+    border: 1px solid #eee !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* ==================================
+   TABLES & DATAFRAMES — WHITE
+================================== */
+.stDataFrame, .stTable, .dataframe,
+.dataframe td, .dataframe th,
+.stDataFrame [data-testid="stDataFrameResizable"] {
+    background-color: white !important;
+    color: black !important;
+    border: none !important;
+}
+
+.dataframe,
+.stTable table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #eee !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+.dataframe td, .dataframe th {
+    border: 1px solid #ddd !important;
+    padding: 0.5rem 0.75rem !important;
+}
+
+.dataframe th {
+    background-color: #f9f9f9 !important;
+    font-weight: bold !important;
+}
+
+/* ==================================
+   SIDEBAR BUTTONS — yellow (gold) default, lighter on hover (matches app.py + theme primary)
+================================== */
+[data-testid="stSidebar"] .stButton {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    width: calc(100% - 24px) !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 6px !important;
+    border-bottom: 1px solid #eef0f2 !important;
+}
+[data-testid="stSidebar"] .stButton button,
+[data-testid="stSidebar"] .stDownloadButton button,
+[data-testid="stSidebar"] .stFormSubmitButton button {
+    background-color: #FFD700 !important;
+    background-image: none !important;
+    color: #111827 !important;
+    border: 1px solid #b59b00 !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+[data-testid="stSidebar"] .stButton button p,
+[data-testid="stSidebar"] .stButton button span {
+    color: inherit !important;
+}
+[data-testid="stSidebar"] .stButton button:hover,
+[data-testid="stSidebar"] .stDownloadButton button:hover,
+[data-testid="stSidebar"] .stFormSubmitButton button:hover {
+    background-color: #FFEB5A !important;
+    border-color: #c4a600 !important;
+    color: #111827 !important;
+}
+[data-testid="stSidebar"] .stButton button:focus-visible,
+[data-testid="stSidebar"] .stDownloadButton button:focus-visible,
+[data-testid="stSidebar"] .stFormSubmitButton button:focus-visible {
+    background-color: #FFEB5A !important;
+    border-color: #c4a600 !important;
+    color: #111827 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.55) !important;
+}
+
+/* Main content default buttons — gold (unchanged) */
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton button,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stDownloadButton button,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stFormSubmitButton button {
+    background-color: #FFD700 !important;
+    color: black !important;
+    border: 1px solid #b59b00 !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1.2rem !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton button:hover,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stDownloadButton button:hover,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stFormSubmitButton button:hover {
+    background-color: #FFEB5A !important;
+    border-color: #c4a600 !important;
+    color: black !important;
+}
+
+/* Create nav / quick actions (help marker mgmt:create_nav) — green */
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton:has([title*="mgmt:create_nav"]) button,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton:has([aria-label*="mgmt:create_nav"]) button,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton button[title*="mgmt:create_nav"] {
+    background-color: #1e8449 !important;
+    color: #ffffff !important;
+    border: 1px solid #196f3d !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton:has([title*="mgmt:create_nav"]) button:hover,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton:has([aria-label*="mgmt:create_nav"]) button:hover,
+:is([data-testid="stAppViewContainer"], [data-testid="stMain"], [data-testid="stMainBlockContainer"]) .stButton button[title*="mgmt:create_nav"]:hover {
+    background-color: #27ae60 !important;
+    border-color: #1e8449 !important;
+    color: #ffffff !important;
+}
+
+/* ==================================
+   TABS & OTHER UI
+================================== */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 12px;
+}
+.stTabs [data-baseweb="tab"] {
+    padding: 8px 20px !important;
+    font-weight: 600 !important;
+    color: black !important;
+}
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: #FFD700 !important;
+    border-radius: 6px !important;
+}
+
+/* ==================================
+   CONTRACT LESSOR LIST — CLEANER
+================================== */
+.lessor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+.lessor-item:last-child {
+    border-bottom: none;
+}
+
+/* ==================================
+   LABELS & TEXT
+================================== */
+label, .stTextInput label, .stSelectbox label, .stNumberInput label, .stDateInput label {
+    color: black !important;
+}
+
+/* ==================================
+   MGMT ROW + CREATE — Streamlit keyed widgets get class st-key-<sanitized_key> (not baseButton-*)
+================================== */
+.stApp [class*="st-key-mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_edit_"] button,
+.stApp [class*="st-key-mgmt_edit_"] button,
+.stApp [class*="st-key-lessor_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-lessor_mgmt_edit_"] button,
+.stApp [class*="st-key-lessor_mgmt_edit_"] button,
+.stApp [class*="st-key-asset_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-asset_mgmt_edit_"] button,
+.stApp [class*="st-key-asset_mgmt_edit_"] button,
+.stApp [class*="st-key-svc_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-svc_mgmt_edit_"] button,
+.stApp [class*="st-key-svc_mgmt_edit_"] button,
+.stApp [class*="st-key-user_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-user_mgmt_edit_"] button,
+.stApp [class*="st-key-user_mgmt_edit_"] button,
+.stApp [class*="st-key-role_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-role_mgmt_edit_"] button,
+.stApp [class*="st-key-role_mgmt_edit_"] button,
+.stApp [class*="st-key-pay_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-pay_mgmt_edit_"] button,
+.stApp [class*="st-key-pay_mgmt_edit_"] button {
+    background-color: #5dade2 !important;
+    color: #ffffff !important;
+    border: 1px solid #3498db !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+.stApp [class*="st-key-mgmt_edit_"] button:hover,
+.stApp [class*="st-key-lessor_mgmt_edit_"] button:hover,
+.stApp [class*="st-key-asset_mgmt_edit_"] button:hover,
+.stApp [class*="st-key-svc_mgmt_edit_"] button:hover,
+.stApp [class*="st-key-user_mgmt_edit_"] button:hover,
+.stApp [class*="st-key-pay_mgmt_edit_"] button:hover {
+    background-color: #3498db !important;
+    border-color: #2980b9 !important;
+    color: #ffffff !important;
+}
+
+/* Contract management hub: wide table columns used to squeeze Edit/Delete — keep one line */
+.stApp [class*="st-key-mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_edit_"] button,
+.stApp [class*="st-key-mgmt_edit_"] button,
+.stApp [class*="st-key-pay_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-pay_mgmt_edit_"] button,
+.stApp [class*="st-key-pay_mgmt_edit_"] button,
+.stApp [class*="st-key-mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_del_"] button,
+.stApp [class*="st-key-mgmt_del_"] button {
+    white-space: nowrap !important;
+    min-width: 5rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.9rem !important;
+}
+
+.stApp [class*="st-key-mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_del_"] button,
+.stApp [class*="st-key-mgmt_del_"] button,
+.stApp [class*="st-key-lessor_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-lessor_mgmt_del_"] button,
+.stApp [class*="st-key-lessor_mgmt_del_"] button,
+.stApp [class*="st-key-asset_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-asset_mgmt_del_"] button,
+.stApp [class*="st-key-asset_mgmt_del_"] button,
+.stApp [class*="st-key-svc_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-svc_mgmt_del_"] button,
+.stApp [class*="st-key-svc_mgmt_del_"] button,
+.stApp [class*="st-key-user_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-user_mgmt_del_"] button,
+.stApp [class*="st-key-user_mgmt_del_"] button,
+.stApp [class*="st-key-role_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-role_mgmt_del_"] button,
+.stApp [class*="st-key-role_mgmt_del_"] button {
+    background-color: #f1948a !important;
+    color: #ffffff !important;
+    border: 1px solid #ec7063 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+.stApp [class*="st-key-mgmt_del_"] button:hover,
+.stApp [class*="st-key-lessor_mgmt_del_"] button:hover,
+.stApp [class*="st-key-asset_mgmt_del_"] button:hover,
+.stApp [class*="st-key-svc_mgmt_del_"] button:hover,
+.stApp [class*="st-key-user_mgmt_del_"] button:hover,
+.stApp [class*="st-key-role_mgmt_del_"] button:hover {
+    background-color: #ec7063 !important;
+    border-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+.stApp [class*="st-key-nav_create_"] .stButton button,
+.stApp .stButton[class*="st-key-nav_create_"] button,
+.stApp [class*="st-key-nav_create_"] button,
+.stApp [class*="st-key-mgmt_hub_create_"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_hub_create_"] button,
+.stApp [class*="st-key-mgmt_hub_create_"] button,
+.stApp [class*="st-key-dash_qact_new_contract"] .stButton button,
+.stApp .stButton[class*="st-key-dash_qact_new_contract"] button,
+.stApp [class*="st-key-dash_qact_new_contract"] button,
+.stApp [class*="st-key-dash_qact_new_lessor"] .stButton button,
+.stApp .stButton[class*="st-key-dash_qact_new_lessor"] button,
+.stApp [class*="st-key-dash_qact_new_lessor"] button {
+    background-color: #82e0aa !important;
+    color: #ffffff !important;
+    border: 1px solid #58d68d !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+.stApp [class*="st-key-nav_create_"] button:hover,
+.stApp [class*="st-key-mgmt_hub_create_"] button:hover,
+.stApp [class*="st-key-dash_qact_new_contract"] button:hover,
+.stApp [class*="st-key-dash_qact_new_lessor"] button:hover {
+    background-color: #58d68d !important;
+    border-color: #48c774 !important;
+    color: #ffffff !important;
+}
+
+/* Contract hub — Create contract: keep label on one line (Streamlit wraps in tight columns) */
+.stApp [class*="st-key-mgmt_hub_create_contract"] .stButton button,
+.stApp .stButton[class*="st-key-mgmt_hub_create_contract"] button,
+.stApp [class*="st-key-mgmt_hub_create_contract"] button {
+    white-space: nowrap !important;
+    line-height: 1.25 !important;
+}
+.stApp [class*="st-key-mgmt_hub_create_contract"] .stButton button p,
+.stApp [class*="st-key-mgmt_hub_create_contract"] button p,
+.stApp [class*="st-key-mgmt_hub_create_contract"] .stButton button span,
+.stApp [class*="st-key-mgmt_hub_create_contract"] button span {
+    white-space: nowrap !important;
+    line-height: 1.25 !important;
+}
+
+/* Lessor management row — Edit / Delete stay readable */
+.stApp [class*="st-key-lessor_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-lessor_mgmt_edit_"] button,
+.stApp [class*="st-key-lessor_mgmt_edit_"] button,
+.stApp [class*="st-key-lessor_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-lessor_mgmt_del_"] button,
+.stApp [class*="st-key-lessor_mgmt_del_"] button {
+    white-space: nowrap !important;
+    min-width: 4.25rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.88rem !important;
+}
+
+/* Service management row — Edit / Delete stay readable */
+.stApp [class*="st-key-svc_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-svc_mgmt_edit_"] button,
+.stApp [class*="st-key-svc_mgmt_edit_"] button,
+.stApp [class*="st-key-svc_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-svc_mgmt_del_"] button,
+.stApp [class*="st-key-svc_mgmt_del_"] button {
+    white-space: nowrap !important;
+    min-width: 4.25rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.88rem !important;
+}
+
+/* Asset management row — Edit / Delete stay readable */
+.stApp [class*="st-key-asset_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-asset_mgmt_edit_"] button,
+.stApp [class*="st-key-asset_mgmt_edit_"] button,
+.stApp [class*="st-key-asset_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-asset_mgmt_del_"] button,
+.stApp [class*="st-key-asset_mgmt_del_"] button {
+    white-space: nowrap !important;
+    min-width: 4.25rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.88rem !important;
+}
+
+/* Email notification management — Edit (blue) */
+.stApp [class*="st-key-email_mgmt_edit_"] .stButton button,
+.stApp .stButton[class*="st-key-email_mgmt_edit_"] button,
+.stApp [class*="st-key-email_mgmt_edit_"] button {
+    background-color: #5dade2 !important;
+    color: #ffffff !important;
+    border: 1px solid #3498db !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    min-width: 4.25rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.88rem !important;
+}
+.stApp [class*="st-key-email_mgmt_edit_"] button:hover {
+    background-color: #3498db !important;
+    border-color: #2980b9 !important;
+    color: #ffffff !important;
+}
+
+/* Email notification management — Delete (red), width fits label */
+.stApp [class*="st-key-email_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-email_mgmt_del_"] button,
+.stApp [class*="st-key-email_mgmt_del_"] button {
+    background-color: #f1948a !important;
+    color: #ffffff !important;
+    border: 1px solid #ec7063 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    min-width: unset !important;
+    width: auto !important;
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.88rem !important;
+}
+.stApp [class*="st-key-email_mgmt_del_"] button:hover {
+    background-color: #ec7063 !important;
+    border-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+/* Distribution management row — Delete / Generate / Regenerate */
+.stApp [class*="st-key-dist_mgmt_del_"] .stButton button,
+.stApp .stButton[class*="st-key-dist_mgmt_del_"] button,
+.stApp [class*="st-key-dist_mgmt_del_"] button {
+    background-color: #f1948a !important;
+    color: #ffffff !important;
+    border: 1px solid #ec7063 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    min-width: 4.1rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.82rem !important;
+}
+.stApp [class*="st-key-dist_mgmt_del_"] button:hover {
+    background-color: #ec7063 !important;
+    border-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+.stApp [class*="st-key-dist_mgmt_gen_"] .stButton button,
+.stApp .stButton[class*="st-key-dist_mgmt_gen_"] button,
+.stApp [class*="st-key-dist_mgmt_gen_"] button {
+    background-color: #82e0aa !important;
+    color: #ffffff !important;
+    border: 1px solid #58d68d !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    min-width: 4.6rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.82rem !important;
+}
+.stApp [class*="st-key-dist_mgmt_gen_"] button:hover {
+    background-color: #58d68d !important;
+    border-color: #48c774 !important;
+    color: #ffffff !important;
+}
+.stApp [class*="st-key-dist_mgmt_regen_"] .stButton button,
+.stApp .stButton[class*="st-key-dist_mgmt_regen_"] button,
+.stApp [class*="st-key-dist_mgmt_regen_"] button {
+    background-color: #85c1e9 !important;
+    color: #1a5276 !important;
+    border: 1px solid #5dade2 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    min-width: 5.2rem !important;
+    min-height: 2.35rem !important;
+    font-size: 0.82rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1.15 !important;
+    padding: 0 0.45rem !important;
+    box-sizing: border-box !important;
+}
+.stApp [class*="st-key-dist_mgmt_regen_"] button p,
+.stApp [class*="st-key-dist_mgmt_regen_"] button span {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.15 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.stApp [class*="st-key-dist_mgmt_regen_"] button:hover {
+    background-color: #5dade2 !important;
+    border-color: #3498db !important;
+    color: #ffffff !important;
+}
+
+/* ==================================
+   STREAMLIT DIALOGS — fit long success/error copy
+================================== */
+[role="dialog"] .stElementContainer,
+[role="dialog"] [data-testid="stVerticalBlock"] {
+    max-width: 100% !important;
+}
+[role="dialog"] [data-testid="stAlertContainer"],
+[role="dialog"] [data-testid="stAlert"],
+[role="dialog"] [data-testid="stMarkdownContainer"] {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+[role="dialog"] [data-testid="stAlert"] p,
+[role="dialog"] [data-testid="stAlert"] span,
+[role="dialog"] [data-testid="stMarkdownContainer"] p {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+}
+
+/* Number input step buttons — reinforce stepper appearance over any inherited
+   .stButton global rule (yellow hover, etc.) */
+.stApp .stNumberInput button,
+.stApp [data-testid="stNumberInputStepUp"] button,
+.stApp [data-testid="stNumberInputStepDown"] button {
+    background-color: #f0f0f0 !important;
+    color: #333333 !important;
+    border: none !important;
+    border-left: 1px solid #cccccc !important;
+    border-radius: 0 !important;
+}
+.stApp .stNumberInput button:hover,
+.stApp [data-testid="stNumberInputStepUp"] button:hover,
+.stApp [data-testid="stNumberInputStepDown"] button:hover {
+    background-color: #d8d8d8 !important;
+    color: #111111 !important;
+    border-left: 1px solid #bbbbbb !important;
+}
+
+/* Bulk action dialog buttons — see mgmt_button_styles.inject_bulk_action_button_css (dialog portaled under body) */

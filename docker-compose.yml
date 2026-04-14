@@ -1,0 +1,50 @@
+# Local / single-VM stack: Streamlit + MySQL 8
+# Usage:
+#   cp .env.example .env   # edit MYSQL_* to match mysql service below if needed
+#   docker compose up --build
+# App: http://localhost:8501
+#
+# For production, use a managed database and point MYSQL_HOST to it instead of `db`.
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: contract-tool-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-root-password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-contract_db}
+      MYSQL_USER: ${MYSQL_USER:-contract_app}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-change-me}
+    ports:
+      - "3306:3306"
+    volumes:
+      - contract_mysql_data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  app:
+    build: .
+    container_name: contract-tool-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: "3306"
+      MYSQL_USER: ${MYSQL_USER:-contract_app}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-change-me}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-contract_db}
+    # Optional: mount .env for email vars
+    # env_file: .env
+
+volumes:
+  contract_mysql_data:

@@ -1,0 +1,5 @@
+[theme]
+primaryColor     = "#FFD700"   # Yellow — matches app button palette; replaces default coral-red
+backgroundColor  = "#ffffff"
+secondaryBackgroundColor = "#f9f9f9"
+textColor        = "#111111"
